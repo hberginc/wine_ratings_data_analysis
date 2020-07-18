@@ -1,6 +1,6 @@
 # wine_ratings
 
- ![Viva la Vino](images/vino.jpg)
+![picture](images/vino.jpeg)
 
 Is there actually statistical correlations between wine rating and price, region or province?
 I believe that I will find that the more expensive wines are more likely to get a higher rating. I also believe that the higher the rating, the more likely that it is an Old World vinyard that produced the grapes. 
