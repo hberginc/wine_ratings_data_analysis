@@ -1,6 +1,6 @@
 # wine_ratings
 
- ![Viva la Vino](images/vino.jpg)
+![picture](images/vino.jpeg)
 
 ## OVERVIEW
 
