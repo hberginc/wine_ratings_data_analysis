@@ -37,12 +37,21 @@ First, I was interested in determining if there was a statistical correlations b
 My null hypothesis would state that Italian wines have the same average rating than other countries
 My alternate hypothesis would state that Italian wines have a higher rating by 5%. 
 
-alpha 
+alpha = 0.05
+
+p_value = 1.251555077297758e-09
+
+Cannot reject null hypothesis
+
+
+Null Hypothesis 2:
+the mean of the distribution of the average ratings would be identical to the average prices. 
+
+Alternate  is that the two mean disributions would be different
 
 
 
 
-one tailed test
 
 
 
