@@ -29,6 +29,27 @@ After all of the initial data investigation, I will be searching for statistical
 
 
 
+## Hypothesis
+
+First, I was interested in determining if there was a statistical correlations between wine rating and country. 
+
+
+My null hypothesis would state that Italian wines have the same average rating than other countries
+My alternate hypothesis would state that Italian wines have a higher rating by 5%. 
+
+alpha 
+
+
+
+
+one tailed test
+
+
+
+
+
+
+
 
 I believe that I will find that the more expensive wines are more likely to get a higher rating. I also believe that the higher the rating, the more likely that it is an Old World vinyard that produced the grapes. 
 
