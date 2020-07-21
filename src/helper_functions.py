@@ -73,7 +73,7 @@ def plot_cdfs_overlay(ax, dist_data_a, dist_data_b, low_x, high_x, label_a = 'It
     ax.set_ylabel(y_label)
     ax.set_title(title)
     ax.legend()
-    plt.show()
+    
 
 
 

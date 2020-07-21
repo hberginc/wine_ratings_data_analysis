@@ -7,7 +7,7 @@ import seaborn as sns
 from helper_functions import *
 
 #use cleaning functions 
-path = '~/galvanize/Capstone_1/wine_ratings/data/winemag-data-130k-v2.csv'
+path = '~/galvanize/Capstone_1/data/winemag-data-130k-v2.csv'
 cleaner = DataClean(path)
 cleaner.replace_val(86909, 'variety', 'Cabernet Sauvignon')
 cleaner.drop_null_rows(['country'])
@@ -39,13 +39,13 @@ plt.subplots_adjust(wspace = 0.6)
 plot_cdf_left(axs[0], italy_norm, 80, 100)
 plot_cdf_right(axs[1], non_it_norm, 80, 100) 
 plt.show()
-plt.savefig('two_cdf.png')
+plt.close()
 
 #plot_cdf_overlay
 fig, ax = plt.subplots(1)
 plot_cdfs_overlay(ax, italy_norm, non_it_norm, 80, 100)
-plt.savefig('cdf_overlay.png')
-
+plt.show()
+plt.close()
 
 # checkout actual p_value
 p_val = stats.ttest_1samp(x_italy_data, non_italy_mean)[1]
