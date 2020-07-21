@@ -9,23 +9,24 @@ src to help: https://winefolly.com/tips/wine-ratings-explained/
 
 
 ## Questions
-1. Is there actually statistical correlations between wine rating and price or rating and region?
+1. Is there actually statistical correlations between rating and description?
+
 2. Which varieties are popuar in each individual region and does that popularity span to other regions?
 
 ## Cleaning the Data
-Viewing the data before dropping any values, this CSV has a total of 129,975 rows to investigate and 13 columns. The data provides the following columns: county, description, designation, points, price, province, regions_1, regions_2, taster_name, taster_twitter_handle, title, variety, and winery. 
+* Viewing the data before dropping any values, this CSV has a total of 129,975 rows to investigate and 13 columns. The data provides the following columns: county, description, designation, points, price, province, regions_1, regions_2, taster_name, taster_twitter_handle, title, variety, and winery. 
 
-Columns that have no null values are [description, points, title, and winery]. After investigating the one missing variety value, it was determined that the variety could be included as 'Cabernet Sauvignon' which added that column to the no null values list. 
+* Columns that have no null values are [description, points, title, and winery]. After investigating the one missing variety value, it was determined that the variety could be included as 'Cabernet Sauvignon' which added that column to the no null values list. 
 
-The data contains information about 43 different countries and range between having 1 to 54,504 values available for that country. After viewing the missing data for the 'country' column, there were a total of 63 missing countries. Looking deeper into the winery of each of these missing values, it looks like we alreay have sufficient data to work from and will drop these 63 rows. For example, there were 7 missing values cited from a winery in Austria, but since we already have 3345 other rows containing Austrian information those extra seven rows are likely to be insignificant. Also, the rows missing country name also correlate to the province missing values. Dropping those countries will also create non null values in the province column. 
+* The data contains information about 43 different countries and range between having 1 to 54,504 values available for that country. After viewing the missing data for the 'country' column, there were a total of 63 missing countries. Looking deeper into the winery of each of these missing values, it looks like we alreay have sufficient data to work from and will drop these 63 rows. For example, there were 7 missing values cited from a winery in Austria, but since we already have 3345 other rows containing Austrian information those extra seven rows are likely to be insignificant. Also, the rows missing country name also correlate to the province missing values. Dropping those countries will also create non null values in the province column. 
 
-Focusing on the differences between title and designation column, it looks fairly repeditive. Each desgination has language repeated in the title column and would be unnecessary to utalize from here on out. The designation column will be dropped for the remainder of the data analysis. 
+* Focusing on the differences between title and designation column, it looks fairly repeditive. Each desgination has language repeated in the title column and would be unnecessary to utalize from here on out. The designation column will be dropped for the remainder of the data analysis. 
 
-All columns pertaining to taster information will also be dropped since I do not plan on finding inferences between the indiviual taster and their ratings at this time. Similarly, the description column which has no null values does not contain any informative information at this time since I am not searching for correlations between ratings and specific wine descriptive terms.
+* All columns pertaining to taster information will also be dropped since I do not plan on finding inferences between the indiviual taster and their ratings at this time. Similarly, the description column which has no null values does not contain any informative information at this time since I am not searching for correlations between ratings and specific wine descriptive terms.
 
-Province and region_1 have some useful data that would allow looking into the intricacies of indiviual countries with more depth and will be kept. Region_2 however has such a large number of null values and simply provides further detail to Region_1 column that It will also be dropped. 
+* Province and region_1 have some useful data that would allow looking into the intricacies of indiviual countries with more depth and will be kept. Region_2 however has such a large number of null values and simply provides further detail to Region_1 column that It will also be dropped. 
 
-After all of the initial data investigation, I will be searching for statistical correlations using the following information. I have 129908 rows of information pertaining to the following non-null columns: Country, points, province, title, variety and winery. I also will be utilizing the 120916 non-null price values and possibly the 108724 non-null rows of region_1 for further research. 
+* After all of the initial data investigation, I will be searching for statistical correlations using the following information. I have 129908 rows of information pertaining to the following non-null columns: Country, points, province, title, variety and winery. I also will be utilizing the 120916 non-null price values and possibly the 108724 non-null rows of region_1 for further research. 
 
 
 
@@ -34,24 +35,20 @@ After all of the initial data investigation, I will be searching for statistical
 First, I was interested in determining if there was a statistical correlations between wine rating and country. 
 
 
-My null hypothesis would state that Italian wines have the same average rating than other countries
-My alternate hypothesis would state that Italian wines have a higher rating by 5%. 
+    My null hypothesis would state that Italian wines have the same average rating than other countries
+    My alternate hypothesis would state that Italian wines have a higher rating by 5%. 
+    alpha = 0.05
+    p_value = 1.251555077297758e-09
 
-alpha = 0.05
-
-p_value = 1.251555077297758e-09
-
-Cannot reject null hypothesis
+    Cannot reject null hypothesis
 
 
-Null Hypothesis 2:
-the mean of the distribution of the average ratings would be identical to the average prices. 
-
-Alternate  is that the two mean disributions would be different
+    Ho = The variety Cabernet Sauvignon has the same rating distribution as others
+    Ho = The variety Cabernet Sauvignon has a higher rating distribution than others
 
 
-
-
+    Ho = The length of the description does not correlate to higher ratings.
+    Ha = The length of the descriotion is statistically correlated to higher ratings
 
 
 
