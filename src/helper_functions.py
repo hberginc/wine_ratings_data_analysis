@@ -39,12 +39,13 @@ class DataClean(object):
         '''
         parameters:
         unclean_df =  specific data frame
-        col = column as a string which you wish to drop null values
+        col = list of columns for which you wish to drop null values
 
         returns:
         dataframe as is with dropped rows on particular colum
         '''
-        return self.data[self.data[col].notna()].reset_index()
+        self.data.dropna(axis = 0, how = 'any', subset = col, inplace = True)
+        return self.data
 
         
 

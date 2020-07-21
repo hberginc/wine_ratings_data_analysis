@@ -34,8 +34,6 @@ src to help: https://winefolly.com/tips/wine-ratings-explained/
 
 First, I was interested in determining if there was a statistical correlations between wine rating and country. 
 
-
-
     Ho = Italian wines have the same average rating as other countries
     Ha = Italian wines have a statistically significant higher rating. 
 
