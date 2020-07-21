@@ -32,38 +32,31 @@ src to help: https://winefolly.com/tips/wine-ratings-explained/
 
 ## Hypothesis
 
-First, I was interested in determining if there was a statistical correlations between wine rating and country. 
+1. I was interested in determining if there was a statistical correlations between wine rating and country. 
 
-    Ho = Italian wines have the same average rating as other countries
-    Ha = Italian wines have a statistically significant higher rating. 
+    Null Hypothesis: Italian wines have the same average rating as other countries
+    Alternative Hypothesis: Italian wines have a statistically significant higher rating. 
 
-    alpha = 0.05
-    p_value = 8.839008131948766e-13
+    After calculating a p_value of 8.839008131948766e-13 I can safely reject my null Hypothesis and determine that Italian wines have a statistically higher rating than other wines
 
-    I can reject my null hypothesis, Italian wines have a statistically significant higher rating than non Italian wines
-
-
-
-    Ho = The variety Cabernet Sauvignon has the same rating distribution as others
-    Ho = The variety Cabernet Sauvignon has a higher rating distribution than others
+![picture](images/overlapping_cdf.png)
+    Here we seet the cumulative distribution functions for the ratings of the Italian Wines versus the others.
 
 
-    Ho = The length of the description correlates by no more than .60 to the ratings.
-    Ha = The length of the descriotion is statistically correlated to higher ratings
+2. I was also interested in looking closer at the relationship between the description and the rating value.
 
+    Null Hypothesis: Wines that are less than the median rating have a the same length descriptions as wines with points above the median.
+    Alternative Hypothesis: Wines that are higher than the median rating have longer descriptions than the wines with lower ratings.
 
+    Once finding a p_value of exactly 0 I can certainly conclude that the rating value is connected to having longer descriptions.
 
+![picture](images/description_scatter.png)
 
+3. Similar to my second hypothesis, I wondered if the reverse concept was true. 
+    Null Hypothesis: Wines that have fewer than the median number of words in the description no difference in ratings ratings than those with longer descriptions. 
+    Alternative Hypothesis: Wines that have greater than the median number of words in the description have higher ratings.
 
+    Using this similar hypothesis, I also found a p_value of exactly 0. The length of the description is correlated with having higher reviews.
 
-
-
-I believe that I will find that the more expensive wines are more likely to get a higher rating. I also believe that the higher the rating, the more likely that it is an Old World vinyard that produced the grapes. 
-
-I will be searching through the data found on Kaggle's 'Wine Reviews' database for correlations between the rating the indiviual gave a specific wine compared to other wines with similar characteristics. 
-
-There is a total of 14 columns in the csv file I plan on using with a total of 130,000 rows of data provided. This was data originally scraped from WineEnthusiast. The main columns I will be focusing on are the following, [country, designation, points, price, province, region1, region2]. Points and price provide numerical data while the other columns are categorical. Designation has about a quarter of the data missing and most likely will not play a pivital role in determining statistical inference but may be interesting to investigagte why they are Nan values. Region1 also contains Nan values 16% of the time which may highlight specific provinces and clarify why that is the case. Since region2 clarifies any more specific information avaiable about region1 and has fewer than 50% available data available. 
-The only columns that do not have Nan values are the description and the rating columns. 
-
-The minimum I plan on acomplishing with this available data is to state correlations between price and rating. The small percentage of Nan values in the price column would likely not have an effect on finding correlations through the data cleaning process and will likely be dropped. I will provide graphical visuals to express the dataset and explore the outliers. 
+![picture](images/points_scatter_per_desc.png)
 
