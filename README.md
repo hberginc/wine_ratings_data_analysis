@@ -35,19 +35,22 @@ src to help: https://winefolly.com/tips/wine-ratings-explained/
 First, I was interested in determining if there was a statistical correlations between wine rating and country. 
 
 
-    My null hypothesis would state that Italian wines have the same average rating than other countries
-    My alternate hypothesis would state that Italian wines have a higher rating by 5%. 
-    alpha = 0.05
-    p_value = 1.251555077297758e-09
 
-    Cannot reject null hypothesis
+    Ho = Italian wines have the same average rating as other countries
+    Ha = Italian wines have a statistically significant higher rating. 
+
+    alpha = 0.05
+    p_value = 8.839008131948766e-13
+
+    I can reject my null hypothesis, Italian wines have a statistically significant higher rating than non Italian wines
+
 
 
     Ho = The variety Cabernet Sauvignon has the same rating distribution as others
     Ho = The variety Cabernet Sauvignon has a higher rating distribution than others
 
 
-    Ho = The length of the description does not correlate to higher ratings.
+    Ho = The length of the description correlates by no more than .60 to the ratings.
     Ha = The length of the descriotion is statistically correlated to higher ratings
 
 

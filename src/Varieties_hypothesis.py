@@ -12,7 +12,6 @@ alpha = 0.05
 '''
 
 
-
 #use cleaning functions 
 uncleaned_data = read_data('/home/heather/galvanize/Capstone_1/wine_ratings/data/winemag-data-130k-v2.csv')
 added_variety = replace_val(uncleaned_data, 86909, 'variety', 'Cabernet Sauvignon')

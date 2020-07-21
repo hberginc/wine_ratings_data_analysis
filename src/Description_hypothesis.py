@@ -21,3 +21,9 @@ dropped_rows = drop_null_rows(added_variety, 'country')
 cols = ['country', 'description', 'points', 'price', 'province', 'region_1', 'title', 'variety', 'winery']
 cleaned_df = clean_df(dropped_rows, cols)
 
+
+
+#first, take a look at the range of lengths of descriptions
+cleaned_df['description'].describe()
+
+#should I make another column that counts the length of the description

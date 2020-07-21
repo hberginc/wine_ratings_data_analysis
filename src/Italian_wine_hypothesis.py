@@ -4,17 +4,16 @@ import numpy as np
 import scipy.stats as stats
 import seaborn as sns
 
-from cleaned_data import *
+from helper_functions import *
 '''
 Ho = Italian wines have the same average rating as other countries
 Ha = Italian wines have a statistically significant higher rating. 
 
 alpha = 0.05
-p_value = 1.251555077297758e-09
-Cannot reject null hypothesis
+p_value = 8.839008131948766e-13
+
+I can reject my null hypothesis, Italian wines have a statistically significant higher rating than non Italian wines
 '''
-
-
 
 #use cleaning functions 
 uncleaned_data = read_data('/home/heather/galvanize/Capstone_1/wine_ratings/data/winemag-data-130k-v2.csv')
@@ -24,47 +23,54 @@ cols = ['country', 'description', 'points', 'price', 'province', 'region_1', 'ti
 cleaned_df = clean_df(dropped_rows, cols)
 
 
+#view Italian and non_Italian wine Point values
+x_non_it_data = cleaned_df[cleaned_df['country'] != 'Italy']['points']
+x_italy_data = cleaned_df[cleaned_df['country'] == 'Italy']['points']
 
-cleaned_df['points'].describe()
-'''
-count    129908.000000
-mean         88.447047
-std           3.040066
-min          80.000000
-25%          86.000000
-50%          88.000000
-75%          91.000000
-max         100.000000
-'''
+#x_data
+non_italy_mean = np.mean(x_non_it_data)
+non_italy_std = np.std(x_non_it_data, ddof = 1)
+#x_italy_data
+italy_mean = np.mean(x_italy_data)
+italy_std = np.std(x_italy_data, ddof=1)
 
-'''
-since mean is 88.447 and std is 3.04, 
-use histogram to view the 
-normal distribution of  the sample mean
-'''
-x_data = cleaned_df['points']
-normal_test = stats.norm(88.447, 3.04)
 
-fig, ax = plt.subplots(1)
-x = np.linspace(77, 100)
-ax.hist(x_data, bins = 20, alpha = 0.7, density = True, color = 'blue')
-ax.plot(x, normal_test.pdf(x), color = 'red')
+#norm_dist_of_means
+non_it_norm= stats.norm(non_italy_mean, non_italy_std)
+italy_norm = stats.norm(italy_mean, italy_std)
+
+
+#plot_cdf_side_by_side
+fig, axs = plt.subplots(1,2)
+plt.subplots_adjust(wspace = 0.6)
+x = np.linspace(80, 100)
+axs[0].plot(x, non_it_norm.cdf(x), color = 'red')
+axs[0].set_title("Non_Italian")
+axs[0].set_xlabel('Ratings from 80 to 100')
+axs[0].set_ylabel('CDF')
+axs[1].plot(x, italy_norm.cdf(x), color = 'blue')
+axs[1].set_title("Italian")
+axs[1].set_xlabel('Ratings from 80 to 100')
+axs[1].set_ylabel('CDF')
 plt.show()
 
 
-#find info on just Italian wines
-italy_data = cleaned_df[cleaned_df['country'] == 'Italy']
-#compare italy_data to norm_dist
-x_data_It = italy_data['points']
-
+#plot_cdf_ontop_of_eachother
 fig, ax = plt.subplots(1)
-x = np.linspace(77, 100)
-ax.hist(x_data_It, bins = 15, alpha = 0.7, density = True, color = 'purple')
-ax.plot(x, normal_test.pdf(x), color = 'red')
-plt.show()
+x = np.linspace(80, 100)
+ax.plot(x, non_it_norm.cdf(x), color = 'red', label = 'Non_Italian')
+ax.plot(x, italy_norm.cdf(x), color = 'blue', label = 'Italian' )
+plt.title("CDF's of Italian and Non_Italian Wines")
+plt.xlabel('Ratings from 80 to 100')
+plt.ylabel('CDF')
+plt.legend()
+#plt.show()
 
 
-#checkout actual p_value
-p_val = stats.ttest_1samp(x_data_It,np.mean(cleaned_df['points']))[1]
-print(f'The p value is {p_val}.')
-#1.251555077297758e-09
+
+# checkout actual p_value
+p_val = stats.ttest_1samp(x_italy_data, non_italy_mean)[1]
+# print(f'The p value is {p_val}.')
+
+
+
