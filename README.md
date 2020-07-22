@@ -50,7 +50,7 @@ src to help: https://winefolly.com/tips/wine-ratings-explained/
 
     Once finding a p_value of exactly 0 I can certainly conclude that the rating value is connected to having longer descriptions.
 
-![picture](images/description_scatter.png)
+![picture](images/desc_per_rate_violin.png)
 
 3. Similar to my second hypothesis, I wondered if the reverse concept was true. 
     Null Hypothesis: Wines that have fewer than the median number of words in the description no difference in ratings ratings than those with longer descriptions. 

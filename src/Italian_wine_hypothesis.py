@@ -7,18 +7,18 @@ import seaborn as sns
 from helper_functions import *
 
 #use cleaning functions 
-path = '~/galvanize/Capstone_1/data/winemag-data-130k-v2.csv'
+path = '~/galvanize/Capstone_1/git_info_wine_ratings/data/winemag-data-130k-v2.csv'
 cleaner = DataClean(path)
 cleaner.replace_val(86909, 'variety', 'Cabernet Sauvignon')
 cleaner.drop_null_rows(['country'])
 cols = ['country', 'description', 'points', 'price', 'province', 'region_1', 'title', 'variety', 'winery']
-cleaner.clean_df(cols)
+cleaned = cleaner.clean_df(cols)
 
 
 
 #view Italian and non_Italian wine Point values
-x_non_it_data = cleaner.data[cleaner.data['country'] != 'Italy']['points']
-x_italy_data = cleaner.data[cleaner.data['country'] == 'Italy']['points']
+x_non_it_data = cleaned[cleaned['country'] != 'Italy']['points']
+x_italy_data = cleaned[cleaned['country'] == 'Italy']['points']
 
 #x_data
 non_italy_mean = np.mean(x_non_it_data)
