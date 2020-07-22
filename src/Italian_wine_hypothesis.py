@@ -38,10 +38,5 @@ print(f'The p value is {p_val}.')
 #0.0008348843726267126.
 
 
-#using spearman coorelation coefficients
-it_samp = sample_data(x_italy_data, 20000)
-other_samp = sample_data(x_non_it_data, 20000)
-itcorr, itp_val = stats.spearmanr(it_samp, other_samp)
 
-print(itcorr, itp_val)
 
