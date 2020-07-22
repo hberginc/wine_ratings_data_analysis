@@ -33,12 +33,27 @@ plot_cdf_overlay_2(ax, distrib_dict, 80, 100)
 
 
 
-p_val = stats.mannwhitneyu(x_italy_data, x_non_it_data, use_continuity=False, alternative='greater')[1]
-print(f'The p value is {p_val}.')
-#0.0008348843726267126.
+p_val1 = stats.mannwhitneyu(Italy_data, France_data, use_continuity=False)[1]
+print(f'The p value is {p_val1}.')
+#Using Bonferoni Correction due to utiliing Italy data twice:
+new_alpha1 = bonferroni_correction(2, 0.05)
+print(f'Reject the null because new alpha is {new_alpha1} which is still higher than our p_value')
 
-#Calfornia 2,629
-#France 22,093
-#Italy 19,540
+print('\n')
 
-#use bonferoni correction each time you use your data!
+
+
+p_val2 = stats.mannwhitneyu(Italy_data, California_data, use_continuity=False)[1]
+print(f'The p value is {p_val2}.')
+#Using Bonferoni Correction due to utiliing Italy data three times:
+new_alpha2 = bonferroni_correction(3, 0.05)
+print(f'Reject the null because new alpha is {new_alpha2} which is still higher than our p_value')
+
+print('\n')
+
+
+p_val3 = stats.mannwhitneyu(California_data, France_data, use_continuity=False)[1]
+print(f'The p value is {p_val3}.')
+#Using Bonferoni Correction due to utiliing French and Cali Data twice times:
+new_alpha3 = bonferroni_correction(2, 0.05)
+print(f'Reject the null because new alpha is {new_alpha3} which is still higher than our p_value\n')
