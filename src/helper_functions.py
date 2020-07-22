@@ -89,5 +89,6 @@ def plot_cdf_overlay_2(ax, dist_dict, low_x, high_x):
         ax.plot(x, empirical_distribution_cdf(x,kv['data']), color = kv['color'], label = kv['label'])
     ax.legend()
 
-
-
+def sample_data(data, num_samps=1000):
+    samps = np.random.choice(data, size = num_samps, replace = True)
+    return samps

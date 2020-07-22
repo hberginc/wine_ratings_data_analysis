@@ -25,9 +25,9 @@ italy_cdf = empirical_distribution_cdf(x_range, x_italy_data)
 non_italy_cdf = empirical_distribution_cdf(x_range, x_non_it_data)
 
 #plot overlay cdf
-fig, ax = plt.subplots(1)
-plot_cdfs_overlay(ax, italy_cdf, non_italy_cdf, 80, 100)
-plt.show()
+# fig, ax = plt.subplots(1)
+# plot_cdfs_overlay(ax, italy_cdf, non_italy_cdf, 80, 100)
+# plt.show()
 
 
 
@@ -38,4 +38,10 @@ print(f'The p value is {p_val}.')
 #0.0008348843726267126.
 
 
+#using spearman coorelation coefficients
+it_samp = sample_data(x_italy_data, 20000)
+other_samp = sample_data(x_non_it_data, 20000)
+itcorr, itp_val = stats.spearmanr(it_samp, other_samp)
+
+print(itcorr, itp_val)
 
