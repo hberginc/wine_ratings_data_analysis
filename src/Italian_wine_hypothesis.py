@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
 import seaborn as sns
-
+from statsmodels.distributions.empirical_distribution import ECDF
 from helper_functions import *
 
 #use cleaning functions 
@@ -15,41 +15,27 @@ cols = ['country', 'description', 'points', 'price', 'province', 'region_1', 'ti
 cleaned = cleaner.clean_df(cols)
 
 
-
 #view Italian and non_Italian wine Point values
 x_non_it_data = cleaned[cleaned['country'] != 'Italy']['points']
 x_italy_data = cleaned[cleaned['country'] == 'Italy']['points']
 
-#x_data
-non_italy_mean = np.mean(x_non_it_data)
-non_italy_std = np.std(x_non_it_data, ddof = 1)
-#x_italy_data
-italy_mean = np.mean(x_italy_data)
-italy_std = np.std(x_italy_data, ddof=1)
 
-#norm_dist_of_means
-non_it_norm= stats.norm(non_italy_mean, non_italy_std)
-italy_norm = stats.norm(italy_mean, italy_std)
+x_range = np.linspace(80,100)
+italy_cdf = empirical_distribution_cdf(x_range, x_italy_data)
+non_italy_cdf = empirical_distribution_cdf(x_range, x_non_it_data)
 
-
-
-#plot_cdf_side_by_side
-fig, axs = plt.subplots(1,2)
-plt.subplots_adjust(wspace = 0.6)
-plot_cdf_left(axs[0], italy_norm, 80, 100)
-plot_cdf_right(axs[1], non_it_norm, 80, 100) 
-plt.show()
-plt.close()
-
-#plot_cdf_overlay
+#plot overlay cdf
 fig, ax = plt.subplots(1)
-plot_cdfs_overlay(ax, italy_norm, non_it_norm, 80, 100)
+plot_cdfs_overlay(ax, italy_cdf, non_italy_cdf, 80, 100)
 plt.show()
-plt.close()
 
-# checkout actual p_value
-p_val = stats.ttest_1samp(x_italy_data, non_italy_mean)[1]
+
+
+# The Mann-Whitney U test is a non-parametric test that can be used in place of an unpaired t-test. It is used to test the null hypothesis that two samples come from the same population (i.e. have the same median) or, alternatively, whether observations in one sample tend to be larger than observations in the other.
+
+p_val = stats.mannwhitneyu(x_italy_data, x_non_it_data, use_continuity=False, alternative='greater')[1]
 print(f'The p value is {p_val}.')
+#0.0008348843726267126.
 
 
 

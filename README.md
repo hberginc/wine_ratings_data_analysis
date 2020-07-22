@@ -60,4 +60,3 @@ src to help: https://winefolly.com/tips/wine-ratings-explained/
 
 ![picture](images/points_scatter_per_desc.png)
 
-wine region reputations? CA wines are getting popular? Pearson Spearman correlation tests(ordered) Throw in the correlation test add some bullet points showing the assumptions about the data...

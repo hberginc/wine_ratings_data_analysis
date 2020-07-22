@@ -65,29 +65,29 @@ class DataClean(object):
 
 
 
-def plot_cdfs_overlay(ax, dist_data_a, dist_data_b, low_x, high_x, label_a = 'Italian_wines', label_b = 'Non_Italian_Wines', title= 'CDF Compare', x_label = 'Points Range', y_label = 'cdf'):
+def empirical_distribution_cdf(x, data):
+    '''
+    CDF of provided data
+    input an array
+    '''
+    value_percentage = 1/len(data)
+    acum = np.zeros((len(x)))
+    for val in data:
+        acum = acum + np.array(x>=val)
+    return acum * value_percentage
+
+
+
+def plot_cdf_overlay_2(ax, dist_dict, low_x, high_x):
+    '''
+    parameters: 
+    dictionary has nested dictionaries within their key, 
+    v pairs are data, color, label
+    '''
     x = np.linspace(low_x, high_x)
-    ax.plot(x, dist_data_a.cdf(x), color = 'red', label = label_a)
-    ax.plot(x, dist_data_b.cdf(x), color = 'blue', label = label_b )
-    ax.set_xlabel(x_label)
-    ax.set_ylabel(y_label)
-    ax.set_title(title)
+    for k,kv in dist_dict.items():
+        ax.plot(x, empirical_distribution_cdf(x,kv['data']), color = kv['color'], label = kv['label'])
     ax.legend()
-    
-
-
-
-def plot_cdf_left(ax, dist_data,low_x, high_x, title = 'Italian_wine'):
-    x = np.linspace(low_x, high_x)
-    ax.plot(x, dist_data.cdf(x), color = 'red')
-    ax.set_title(title)
-
-def plot_cdf_right(ax, dist_data,low_x, high_x, title = 'non_Italian_wine'):
-    x = np.linspace(low_x, high_x)
-    ax.plot(x, dist_data.cdf(x), color = 'blue')
-    ax.set_title(title)
-
-
 
 
 
