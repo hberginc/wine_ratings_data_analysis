@@ -37,7 +37,7 @@ def plot_cdf_overlay_2(ax, dist_dict, low_x, high_x):
 
 
 def sample_data(data, num_samps=1000):
-    samps = np.random.choice(data, size = num_samps, replace = True)
+    samps = np.random.choice(data, size = num_samps, replace = False)
     return samps
 
 

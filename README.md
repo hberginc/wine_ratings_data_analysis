@@ -1,6 +1,8 @@
 # wine_ratings
 
-![picture](images/vino.jpeg)
+<p align="center">
+    <img src="images/vino.jpeg" width='600'/>
+</p>
 
 ## Motivation
 As a self-proclaimed Oenophile, analyzing the data collected by wine experts employed by WineEnthusist, allowed me to dive into the controversial subject of wine ratings. Ratings help guide consumers to spend their money on wine that has verified, quantified quality. This key advertising strategy has launched a series of tasting events, social media rating apps along with wine competitions. Wine consumption has been skyrocketing, and as such, exploring our built in assumptions is a key aspect to moving forward in the wine industry. 
@@ -40,9 +42,6 @@ First hypothesis: Italain wines have higher ratings than other wines.
 Second hypothesis: Italian and French wines have variation in their ratings. 
 Third hypothesis: Italian and Californian wines have variation in thier ratings. 
 Fourt hhypothesis: Californian and French wines have variation in thier ratings.
-
-
-INSERT MAP OF CALI, France, Italy
 
 
 Each of these hypotheses merit the use of the Mann Whitney U test. 

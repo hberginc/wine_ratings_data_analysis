@@ -29,15 +29,15 @@ if __name__ == '__main__':
     dict_for_Italian_heavy = {'Italy':{'data':Italy_data, 'color': 'g', "label": 'Italian_Wine'}, 'Other':{'data':x_non_it_data, 'color':'purple', 'label': 'Non_Italian_Wine'}}
 
     #plot overlay cdf
-    fig, ax = plt.subplots(1,2, figsize = (9,5))
-    plot_cdf_overlay_2(ax[1], distrib_dict, 80, 100)
-    plot_cdf_overlay_2(ax[0], dict_for_Italian_heavy, 80, 100)
-    ax[0].set_xlabel('Rating')
-    ax[0].set_ylabel('CDF')
-    ax[1].set_xlabel('Rating')
-    ax[1].set_ylabel('CDF')
-    plt.savefig('side_by_side_cdf.png')
-    plt.show()
+    # fig, ax = plt.subplots(1,2, figsize = (9,5))
+    # plot_cdf_overlay_2(ax[1], distrib_dict, 80, 100)
+    # plot_cdf_overlay_2(ax[0], dict_for_Italian_heavy, 80, 100)
+    # ax[0].set_xlabel('Rating')
+    # ax[0].set_ylabel('CDF')
+    # ax[1].set_xlabel('Rating')
+    # ax[1].set_ylabel('CDF')
+    # plt.savefig('side_by_side_cdf.png')
+    # plt.show()
 
 
 
@@ -67,3 +67,9 @@ if __name__ == '__main__':
     #Using Bonferoni Correction due to utiliing French and Cali Data twice times:
     new_alpha3 = bonferroni_correction(2, 0.05)
     print(f'Reject the null because new alpha is {new_alpha3} which is still higher than our p_value\n')
+
+
+    print(France_data.count())
+    print(Italy_data.count())
+    print(California_data.count())
+    
