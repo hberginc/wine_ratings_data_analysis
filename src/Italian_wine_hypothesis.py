@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
 import seaborn as sns
-from statsmodels.distributions.empirical_distribution import ECDF
+from Data_Clean_class import *
 from helper_functions import *
 
 #use cleaning functions 
@@ -20,14 +20,24 @@ x_non_it_data = cleaned[cleaned['country'] != 'Italy']['points']
 x_italy_data = cleaned[cleaned['country'] == 'Italy']['points']
 
 
-x_range = np.linspace(80,100)
-italy_cdf = empirical_distribution_cdf(x_range, x_italy_data)
-non_italy_cdf = empirical_distribution_cdf(x_range, x_non_it_data)
+#dict_template_for_plot()
+dict_for_Italian_heavy = {'Italy':{'data':x_italy_data, 'color': 'g', "label": 'Italian_Wine'}, 'Other':{'data':x_non_it_data, 'color':'b', 'label': 'Non_Italian_Wine'}}
 
-#plot overlay cdf
-# fig, ax = plt.subplots(1)
-# plot_cdfs_overlay(ax, italy_cdf, non_italy_cdf, 80, 100)
-# plt.show()
+#Include about other regions comparison
+France_data = cleaned[cleaned['country'] == 'France']['points']
+California_data = cleaned[cleaned['province']=='California']['points']
+#add values to dictionary
+distrib_dict = {'Italy': {'data':x_italy_data, 'color': 'green', 'label': 'Italian Wine'}, 'France': {'data':France_data, 'color': 'blue', 'label': 'French Wine'}, 'California':{'data':California_data, 'color':'red', 'label':'California Wine'}}
+
+fig, ax = plt.subplots(1,2, figsize=(9, 5))
+plot_cdf_overlay_2(ax[0], dict_for_Italian_heavy, 80, 100)
+plot_cdf_overlay_2(ax[1], distrib_dict, 80, 100)
+ax[0].set_xlabel('Rating')
+ax[1].set_xlabel('Rating')
+ax[0].set_ylabel('CDF')
+ax[1].set_ylabel('CDF')
+plt.savefig('cdf_vis.png')
+plt.show()
 
 
 
