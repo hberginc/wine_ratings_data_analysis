@@ -21,16 +21,25 @@ if __name__ == '__main__':
     Italy_data = cleaned[cleaned['country'] == 'Italy']['points']
     France_data = cleaned[cleaned['country'] == 'France']['points']
     California_data = cleaned[cleaned['province']=='California']['points']
-    
+    x_non_it_data = cleaned[cleaned['country'] != 'Italy']['points']
+
 
     #add values to dictionary
     distrib_dict = {'Italy': {'data':Italy_data, 'color': 'green', 'label': 'Italian Wine'}, 'France': {'data':France_data, 'color': 'blue', 'label': 'French Wine'}, 'California':{'data':California_data, 'color':'red', 'label':'California Wine'}}
+    dict_for_Italian_heavy = {'Italy':{'data':Italy_data, 'color': 'g', "label": 'Italian_Wine'}, 'Other':{'data':x_non_it_data, 'color':'purple', 'label': 'Non_Italian_Wine'}}
 
     #plot overlay cdf
-    fig, ax = plt.subplots(1)
-    plot_cdf_overlay_2(ax, distrib_dict, 80, 100)
-    plt.savefig('overlapping_cdf_three.png')
+    fig, ax = plt.subplots(1,2, figsize = (9,5))
+    plot_cdf_overlay_2(ax[1], distrib_dict, 80, 100)
+    plot_cdf_overlay_2(ax[0], dict_for_Italian_heavy, 80, 100)
+    ax[0].set_xlabel('Rating')
+    ax[0].set_ylabel('CDF')
+    ax[1].set_xlabel('Rating')
+    ax[1].set_ylabel('CDF')
+    plt.savefig('side_by_side_cdf.png')
     plt.show()
+
+
 
 
 
