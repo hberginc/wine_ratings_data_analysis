@@ -37,13 +37,15 @@ if __name__ == '__main__':
     sns.violinplot('points', 'description_length', hue = 'above_median_rating', data = All_but_88, palette="Set2", ax = ax)
     ax.set_title('Above and Below Median Vairance')
     plt.savefig('desc_per_rate_violin.png')
-    plt.show()
+    #plt.show()
 
     
-    p_val = stats.mannwhitneyu(below_88_df['description_length'], above_88_df['description_length'], use_continuity=False)[1]
+    p_val = stats.ttest_ind(below_88_df['description_length'], above_88_df['description_length'])[1]
     print(f'The p value is {p_val}.')
 
-
+    correlation = stats.spearmanr(df['points'], df['description_length'])
+    print(correlation)
+    #cor coef = 0.5, p_val = 0
 
 
     # below_des_med = df[['points','description_length']][df['description_length'] < 237]

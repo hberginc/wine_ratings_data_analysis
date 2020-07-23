@@ -29,6 +29,8 @@ if __name__ == '__main__':
     #plot overlay cdf
     fig, ax = plt.subplots(1)
     plot_cdf_overlay_2(ax, distrib_dict, 80, 100)
+    plt.savefig('overlapping_cdf_three.png')
+    plt.show()
 
 
 

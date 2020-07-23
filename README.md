@@ -37,71 +37,43 @@ As a self-proclaimed Oenophile, analyzing the data collected by wine experts emp
 ![picture](images/Original_rate_dist.png)
 
 
+## Hypotheses
+
+1.  My personal favorite wines are Italian based; I believe the raters would rate wines from Italy higher. 
+
+    * Null Hypothesis: Italian wines have the same average rating as other countries
+    * Alternative Hypothesis: Italian wines have a statistically significant higher rating. 
+
+    Comparing Italian Wines to all others, I found a p-value of 0.0008348843726267126. 
+
+![picture](images/cdf_vis.png)
+
+2. Similarly, I was interested in looking at three of the most popular regions to compare ratings as well.  
+
+    * Null Hypothesis: Italian, French and Californian wines have aproximate the same variation in rating. 
+    * Alternative Hypothesis: Italian, French and Californian wines have varying ratings from eachother
+
+![picture](images/overlapping_cdf_three.png)
+
+In each hypothesis above, I calculated p_values dastically below my Initial significance level of 0.05. Since I looked at samples repeatedly, I also used the bonferonni correcion to be certain that I still had a vair significance level. 
+
+    Italian Wines compared to French calculated a a p-value of 5.214538499785126e-23.
+    Italian Wines compared to California wines determined a p-value of 4.78886549077239e-09.
+    Finally, French wines and California wines have a calculated p-value of 1.4295597538415638e-07.
+
+These all produce significant p_values that fall far below the alpha level chose. I can say that these wines do have statistically significant differences in their ratings when compared to regions like Italy, France and California. 
+
+    * NOTE: The two images provided above each show a cumulative disribution function. The similarity between these disrtibutions does not support a concusion of having a practical difference in our wine ratings when comparing to region. 
 
 
+3. Those rating the wines 
 
-* The data contains information about 43 different countries and range between having 1 to 54,504 values available for that country. After viewing the missing data for the 'country' column, there were a total of 63 missing countries. Looking deeper into the winery of each of these missing values, it looks like we alreay have sufficient data to work from and will drop these 63 rows. For example, there were 7 missing values cited from a winery in Austria, but since we already have 3345 other rows containing Austrian information those extra seven rows are likely to be insignificant. Also, the rows missing country name also correlate to the province missing values. Dropping those countries will also create non null values in the province column. 
+    * Null Hypothesis: Wines that are less than the median rating have a the same length descriptions as wines with points above the median.
+    * Alternative Hypothesis: Wines that are higher than the median rating have longer descriptions than the wines with lower ratings.
 
-* Focusing on the differences between title and designation column, it looks fairly repeditive. Each desgination has language repeated in the title column and would be unnecessary to utalize from here on out. The designation column will be dropped for the remainder of the data analysis. 
-
-* All columns pertaining to taster information will also be dropped since I do not plan on finding inferences between the indiviual taster and their ratings at this time. Similarly, the description column which has no null values does not contain any informative information at this time since I am not searching for correlations between ratings and specific wine descriptive terms.
-
-* Province and region_1 have some useful data that would allow looking into the intricacies of indiviual countries with more depth and will be kept. Region_2 however has such a large number of null values and simply provides further detail to Region_1 column that It will also be dropped. 
-
-* After all of the initial data investigation, I will be searching for statistical correlations using the following information. I have 129908 rows of information pertaining to the following non-null columns: Country, points, province, title, variety and winery. I also will be utilizing the 120916 non-null price values and possibly the 108724 non-null rows of region_1 for further research. 
-
-
-
-## Hypothesis
-
-1. I was interested in determining if there was a statistical correlations between wine rating and country. 
-
-    Null Hypothesis: Italian wines have the same average rating as other countries
-    Alternative Hypothesis: Italian wines have a statistically significant higher rating. 
-
-    After calculating a p_value of 8.839008131948766e-13 I can safely reject my null Hypothesis and determine that Italian wines have a statistically higher rating than other wines
-
-![picture](images/overlapping_cdf.png)
-    Here we seet the cumulative distribution functions for the ratings of the Italian Wines versus the others.
-
-
-2. I was also interested in looking closer at the relationship between the description and the rating value.
-
-    Null Hypothesis: Wines that are less than the median rating have a the same length descriptions as wines with points above the median.
-    Alternative Hypothesis: Wines that are higher than the median rating have longer descriptions than the wines with lower ratings.
-
-    Once finding a p_value of exactly 0 I can certainly conclude that the rating value is connected to having longer descriptions.
+    Once finding a p_value of exactly 0. I can certainly conclude that the rating value is connected to having longer descriptions.
 
 ![picture](images/desc_per_rate_violin.png)
-
-3. Similar to my second hypothesis, I wondered if the reverse concept was true. 
-    Null Hypothesis: Wines that have fewer than the median number of words in the description no difference in ratings ratings than those with longer descriptions. 
-    Alternative Hypothesis: Wines that have greater than the median number of words in the description have higher ratings.
-
-    Using this similar hypothesis, I also found a p_value of exactly 0. The length of the description is correlated with having higher reviews.
-
-![picture](images/points_scatter_per_desc.png)
+    The visual above shows a clear connection between the rating and the length of the description as well as the drastic variations in description length. 
 
 
-
-
-
-#36247 CA Reviews
-#22093 FR Reviews
-#19540 IT Reviews
-
-'''
-Ho = Wines that are less than the median rating have a the same length descriptions as wines with points above the median.
-Ha = Wines that are higher than the median rating have longer descriptions than the wines with lower ratings.
-alpha = 0.05
-p_value of 0 
-Reject the Null Hypothesis
-'''
-
-'''
-Ho = Wines that have fewer than the median number of words have fewer points.
-Ha = Wines that have greater than the median number of words have higher ratings.
-alpha = 0.05
-alpha = 0
-Reject the Null Hypothesis
-'''
