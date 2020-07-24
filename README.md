@@ -1,8 +1,5 @@
-# wine_ratings
+# wine_ratings 
 
-<p align="center">
-    <img src="images/vino.jpeg" width='600'/>
-</p>
 
 ## Motivation
 As a self-proclaimed Oenophile, analyzing the data collected by wine experts employed by WineEnthusist, allowed me to dive into the controversial subject of wine ratings. Ratings help guide consumers to spend their money on wine that has verified, quantified quality. This key advertising strategy has launched a series of tasting events, social media rating apps along with wine competitions. Wine consumption has been skyrocketing, and as such, exploring our built in assumptions is a key aspect to moving forward in the wine industry. 
@@ -24,9 +21,11 @@ As a self-proclaimed Oenophile, analyzing the data collected by wine experts emp
     * In the visual above we see the prices with the top five countrys all have substatial outliers, the most variation being in France. 
     * We also see an overall price drop when compared to the rating at or above, at and below the average point value of the data set. 
 
-## Price Scatterplots go here
+For more information about my data cleaning investigation, please check out my file, <a href = "https://github.com/hberginc/wine_ratings/blob/master/src/cleaning_justification.md">cleaning justifications</a> for more information.
 
-Please check out my file, cleaning_justification.md for more information on how I determined which columns and rows to utilize for my questions. 
+
+
+
 
 ## Hypotheses
 Personally, I prefer Italian wines to any other region I have tried. Lets see if the ratings show off my own preference?  
@@ -62,17 +61,32 @@ Italian wines have higher ratings when compared to other countries.
  * Surprisingly, there was a statistical difference with French and Californian wines. **French wines do have a greater average rating than Californian wines**, gathering a p_value of 1.429e-07. 
 
 
-Before stocking up on Chablis, the image below shows the cumulitive distribution functions for the regions in question. Although the p_values for two of the tests show significant statistical difference, the practical difference between the ratings looks to be minimal. 
+Before stocking up on Chablis, the image below shows the cumulitive distribution functions for the regions in question. The minimal differences in the slopes of each region does not highlight our statisticaltests findings. Investigating the slight variation in slope would note minor differences in our wine's point values. 
 
 ![picture](images/side_by_side_cdf.png)
 
-    Examining the slopes of these graphs compared to each region, we see very little change when determing the difference in ratings. 
+    Examining the slopes of these graphs compared to each region, we see very little change when determing the difference in points. Idenifying the incremental increase in the French wines, the slopes are steeper around 93 points than Italy, indicating more French wines accumulated that point value. 
 
-    Italian ratings Average: 88.56
-    French ratings Average: 88.85
-    California Ratings Average: 88.63
+To truly investigate the weight of the statistical test, I bootstrapped means of each region of interest. The image below highlights those findings. 
+
+![picture](images/bootstrap_sidebysidehist.png)
+
+    Taking a closer look at a bootstrapped mean distribution helps highlight the variances that our statistical tests caught onto. Note the x_axis is a range  of at most a half of a point value.
+    
+    Original Data:
+    Italian points Avg: 88.56 with 19540 samples available
+    French points Avg: 88.85 with 22,093 samples available
+    California points Avg: 88.63 with 36,247 samples available. 
+
+### *Although there is an obvious statistical difference in these wine ratings, note that the practical difference is too minimal to convince these tasters to stock up on their French varieties.*
 
 
+## Further Interests
+I find interest in studying this data deeper focusing on the obvious price differences in wines available. Noting the overpowering effect of the price outliers and the minimal range of a 20 point rating system I am wondering if higher priced wines would benefit from a more comprehensive rating system to highlight the differences between the 90 point $80 bottle and the 90 point $1000 bottle. 
 
 
+## Resources
+[Wine Reviews Kaggle Database](https://www.kaggle.com/zynicide/wine-reviews)
+
+[WineEnthusiast E-Magazine](https://www.winemag.com/)
 

@@ -100,7 +100,7 @@ def plot_cdf_overlay_2(ax, dist_dict, low_x, high_x):
 
 
 def boot_strap_means(data, col, num_samps=10000):
-    return [data[col].sample(len(data[col])).mean() for _ in range(num_samps)]
+    return [data[col].sample(len(data[col]), replace = True).mean() for _ in range(num_samps)]
 
 
 

@@ -3,12 +3,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
 import seaborn as sns
-from Data_Clean_class import *
 from helper_functions import *
 
 if __name__ == '__main__':
 
-    #use cleaning functions 
+    # use cleaning functions 
     path = '~/galvanize/Capstone_1/git_info_wine_ratings/data/winemag-data-130k-v2.csv'
     cleaner = DataClean(path)
     cleaner.replace_val(86909, 'variety', 'Cabernet Sauvignon')
@@ -30,23 +29,23 @@ if __name__ == '__main__':
 
 
     p_val1 = stats.mannwhitneyu(Italy_data, France_data, alternative = 'greater')[1]
-    #Using Bonferoni Correction due to utiliing Italy data twice:
+    #Using Bonfreroni Correction due to utiliing Italy data twice:
     new_alpha1 = bonferroni_correction(2, 0.05)
-    print(f'ITALY greater than FRANCE new_alpha: {new_alpha1} p_val = {p_val1}')
+    print(f'ITALY greater than FRANCE? new_alpha: {new_alpha1} p_val = {p_val1}')
 
 
    
     p_val2 = stats.mannwhitneyu(Italy_data, California_data, alternative = 'greater')[1]
-    #Using Bonferoni Correction due to utiliing Italy data three times:
+    #Using Bonferroni Correction due to utiliing Italy data three times:
     new_alpha2 = bonferroni_correction(3, 0.05)
-    print(f'ITALY greater_than CALI new_alpha: {new_alpha2} p_val = {p_val2}')
+    print(f'ITALY greater_than CALI? new_alpha: {new_alpha2} p_val = {p_val2}')
     
 
 
     p_val3 = stats.mannwhitneyu(France_data, California_data, alternative = 'greater')[1]
-    #Using Bonferoni Correction due to utiliing French and Cali Data twice times:
+    #Using Bonferroni Correction due to utiliing French and Cali Data twice times:
     new_alpha3 = bonferroni_correction(2, 0.05)
-    print(f'France greater_than CALI new_alpha: {new_alpha3} p_val = {p_val3}')
+    print(f'France greater_than CALI? new_alpha: {new_alpha3} p_val = {p_val3}')
 
 
 
