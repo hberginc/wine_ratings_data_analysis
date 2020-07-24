@@ -24,6 +24,8 @@ As a self-proclaimed Oenophile, analyzing the data collected by wine experts emp
     * In the visual above we see the prices with the top five countrys all have substatial outliers, the most variation being in France. 
     * We also see an overall price drop when compared to the rating at or above, at and below the average point value of the data set. 
 
+## Price Scatterplots go here
+
 Please check out my file, cleaning_justification.md for more information on how I determined which columns and rows to utilize for my questions. 
 
 ## Hypotheses
@@ -64,7 +66,12 @@ Before stocking up on Chablis, the image below shows the cumulitive distribution
 
 ![picture](images/side_by_side_cdf.png)
 
-    Examining the slopes of these graphs compared to each region, 
+    Examining the slopes of these graphs compared to each region, we see very little change when determing the difference in ratings. 
+
+    Italian ratings Average: 88.56
+    French ratings Average: 88.85
+    California Ratings Average: 88.63
+
 
 
 
