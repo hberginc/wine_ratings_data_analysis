@@ -34,7 +34,7 @@ Alternative Hypothesis: Italian wines have higher ratings when compared to other
 
 ##### An initial view: 
 
-![picture](images/Italy_Other_hist.png)
+![picture](images/Italy_Other_bar.png)
 
  *The collection of ratings range from 80 to 100; this is a typical 20 point rating system the many countries employ. Here we see very little differene in the two distributions visually.*
 
@@ -86,19 +86,22 @@ California | 88.63 | 36,247
 
 
 
-### **Although there is an obvious statistical difference in these wine ratings, note that the practical difference is too minimal to convince interested parties to stock up on Specific varieties.**
+### **Although there is an obvious statistical difference in these wine ratings, note that the practical difference is too minimal to encourage interested parties to stock up on specific region based wines.**
 
 
 ## Extended Testing
 
 ### Price and Rating comparison for expensive wines
 
-Life is too short to drink bad wine, but does that mean it's worth diggin deap into your pockets for wine that is more than $150 a bottle? The correlation between price and rating may be expected but is it really that much stronger than the cheaper bottles? Looking initially at the following scatterplots, the volume of data is certainly disproportionate since only 1% of the wines fall above $150, however there does look like they both have positive correlations between price and point value. 
+Life is too short to drink bad wine, but does that mean it's worth diggin deap into your pockets for a bottle that is more than $150? 
+
+The correlation between price and rating may be expected but is it really that much stronger than the cheaper bottles? Looking initially at the following scatterplots, the volume of data is certainly disproportionate, given that only 1% of the wines fall above $150; however both correlations between price and point value visually have an upward trend. 
 
 ![picture](images/price_scatter.png)
 
+* ##### It is important to note that any wines that do not meet the point systems minimum value of 80 would not be included in this graph and could influence future results. 
 
-Utilizing the spearman correlation test, the cheaper wines have almost twice as much correlation between their ratings and the price point. It is important to note that any wines that do not meet the point systems minimum value of 80 would not be included in this graph and could influence future results. 
+Utilizing the spearman correlation test, the cheaper wines have almost double the correlation value between rating and the price point. 
 
 
 Price Category  | p_value |  Correlation Coefficient
@@ -107,12 +110,11 @@ Cheaper | 0 | 0.6
 Expensive | 1.67e-30 | 0.32 
 
 
-### **Of wines that are sufficient to meet the minimum 80 point requirment, there is a higher correlation beteen price and rating when the price was below $150.  When purchasing an expensive wine it may be smarter look at prices lower than $150, it may be more likely to reach that desired high rating.** 
-
+### Of wines that are sufficient to meet the minimum 80 point requirment, **there is a higher correlation beteen price and rating when the price was below $150.** When purchasing an expensive wine, looking at increased prices past this threashold may not provide the expected increase in point value as well.
 
 ## Future Directions
 
-When working with this database, I was interested in including a time component to determine possible increase in ratings on specific areas that are trending. California, for example, has really helped put the US on the map when discussing great wines. Merging this database with more ratings from different blind tastings and including a time component would possibly allow me to find vinyards that are soon to be popular. 
+Due to exploring this database, I have interest in including a time component to determine possible increase in ratings on specific areas that are trending. California, for example, has really helped put the US on the map when discussing great wines. Merging this database with more ratings from different blind tastings and including a time component would possibly allow me to find vinyards that are soon to be popular. 
 
 
 ## Resources
