@@ -136,7 +136,7 @@ if __name__ == "__main__":
     print('Missing value replaced with Cabernet')
     cleaner.drop_null_rows(['country'])
     print('Dropped all null country rows')
-    cols = ['country', 'description', 'points', 'price', 'province', 'region_1', 'title', 'variety', 'winery']
+    cols = ['country', 'description', 'points', 'price', 'province']
     cleaned = cleaner.clean_df(cols)
     print('"cleaned" df ready to go!')
     print(cleaned.head(2))

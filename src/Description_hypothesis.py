@@ -48,23 +48,23 @@ if __name__ == '__main__':
     #cor coef = 0.5, p_val = 0
 
 
-    # below_des_med = df[['points','description_length']][df['description_length'] < 237]
-    # above_des_med = df[['points','description_length']][df['description_length'] > 237]
+    below_des_med = df[['points','description_length']][df['description_length'] < 237]
+    above_des_med = df[['points','description_length']][df['description_length'] > 237]
 
-    # fig, ax = plt.subplots(1)
-    # ax.scatter(below_des_med['description_length'], below_des_med['points'], color = 'blue', alpha = 0.5)
-    # ax.scatter(above_des_med['description_length'], above_des_med['points'], color = 'green', alpha = 0.5)
-    # ax.set_ylabel('Rating')
-    # ax.set_xlabel('Description Length')
-    # ax.set_title('Rating per Length of Description')
-    # plt.savefig('points_scatter_per_desc.png')
-    # plt.show()
-    # plt.close()
+    fig, ax = plt.subplots(1)
+    ax.scatter(below_des_med['description_length'], below_des_med['points'], color = 'blue', alpha = 0.5)
+    ax.scatter(above_des_med['description_length'], above_des_med['points'], color = 'green', alpha = 0.5)
+    ax.set_ylabel('Rating')
+    ax.set_xlabel('Description Length')
+    ax.set_title('Rating per Length of Description')
+    plt.savefig('points_scatter_per_desc.png')
+    plt.show()
+    plt.close()
 
-    # p_val_desc = stats.ttest_ind(below_des_med['points'], above_des_med['points'])[1]
+    p_val_desc = stats.ttest_ind(below_des_med['points'], above_des_med['points'])[1]
 
-    # fig, ax = plt.subplots(1)
-    # sns.scatterplot(below_des_med['description_length'], below_des_med['points'], x_jitter= True, ax = ax)
-    # sns.scatterplot(above_des_med['description_length'], above_des_med['points'], x_jitter= True, ax = ax)
-    # plt.show()
+    fig, ax = plt.subplots(1)
+    sns.scatterplot(below_des_med['description_length'], below_des_med['points'], x_jitter= True, ax = ax)
+    sns.scatterplot(above_des_med['description_length'], above_des_med['points'], x_jitter= True, ax = ax)
+    plt.show()
 

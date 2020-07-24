@@ -35,7 +35,7 @@ Italian wines have higher ratings when compared to other countries.
 
 ![picture](images/Italy_Other_hist.png)
 
-    The collection of ratings range from 80 to 100, which is a typical rating range for wines. Here we see very little differene in the two distributions visually.
+ *The collection of ratings range from 80 to 100, which is a typical rating range for wines. Here we see very little differene in the two distributions visually.*
 
 
  * Setting a significance level of 0.05 and returning a p_value of 0.0008 determines that I am confident that the **Italian wines on average rate higher than the other countries wines** provided.
@@ -54,7 +54,7 @@ Italian wines have higher ratings when compared to other countries.
 
 ![picture](images/bar_dist.png)
 
-    A quick preview of the rating distributions shows very little difference in their overall popularity. 
+*A quick preview of the rating distributions shows very little difference in their overall popularity.* 
 
 
  * First and Second comparison showed no significant difference in the ratings between the Italian wines and the French wines. Due to the utilization of the Italy data in my previous hypothesis, I utilized the Bonferroni Correction to modify the inital p_values for each sample that was repeated. Gathering a p_value of 1 for both tests comparing Italy, showing no confidence in a difference between the two. 
@@ -65,20 +65,20 @@ Before stocking up on Chablis, the image below shows the cumulitive distribution
 
 ![picture](images/side_by_side_cdf.png)
 
-    Examining the slopes of these graphs compared to each region, we see very little change when determing the difference in points. Idenifying the incremental increase in the French wines, the slopes are steeper around 93 points than Italy, indicating more French wines accumulated that point value. 
+*Examining the slopes of these graphs compared to each region, we see very little change when determing the difference in points. Idenifying the incremental increase in the French wines, the slopes are steeper around 93 points than Italy, indicating more French wines accumulated that point value.* 
 
 To truly investigate the weight of the statistical test, I bootstrapped means of each region of interest. The image below highlights those findings. 
 
 ![picture](images/bootstrap_sidebysidehist.png)
 
-    Taking a closer look at a bootstrapped mean distribution helps highlight the variances that our statistical tests caught onto. Note the x_axis is a range  of at most a half of a point value.
+*Taking a closer look at a bootstrapped mean distribution helps highlight the variances that our statistical tests caught onto. Note the x_axis is a range  of at most a half of a point value.*
     
-    Original Data:
-    Italian points Avg: 88.56 with 19540 samples available
-    French points Avg: 88.85 with 22,093 samples available
-    California points Avg: 88.63 with 36,247 samples available. 
+Original Data:
+* Italian points Avg: 88.56 with 19540 samples available
+* French points Avg: 88.85 with 22,093 samples available
+* California points Avg: 88.63 with 36,247 samples available. 
 
-### *Although there is an obvious statistical difference in these wine ratings, note that the practical difference is too minimal to convince these tasters to stock up on their French varieties.*
+### **Although there is an obvious statistical difference in these wine ratings, note that the practical difference is too minimal to convince these tasters to stock up on their French varieties.**
 
 
 ## Further Interests
