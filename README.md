@@ -2,47 +2,50 @@
 
 
 ## Motivation
-As a self-proclaimed Oenophile, analyzing the data collected by wine experts employed by WineEnthusist, allowed me to dive into the controversial subject of wine ratings. Ratings help guide consumers to spend their money on wine that has verified, quantified quality. This key advertising strategy has launched a series of tasting events, social media rating apps along with wine competitions. Wine consumption has been skyrocketing, and as such, exploring our built in assumptions is a key aspect to moving forward in the wine industry. 
+As a self-proclaimed Oenophile, analyzing the data collected by wine experts from [WineEnthusiast](https://www.winemag.com/), allows me to dive into the subjective subject of wine ratings. Ratings can help guide consumers to spend their money on wine that has verified and quantified quality without needed to test it themselves. This key advertising strategy has launched a series of tasting events, social media rating apps, along with wine competitions. Wine consumption continues to increase drastically, and as such, exploring the use of the rating system is a key aspect to moving forward in the wine industry. 
 
 ## About this Data
-* Viewing this data before manipulating the points of interest, it seems like there is a total of thirteen categories. Of these thirteen, the following 5 columns provide the most interets. 
+* The initial visual of this data provids a total of thirteen columns. Of these thirteen, the following 5 columns anticipate the most interet with my Data Analysis. 
     1. country: This gives the full name of the Country where the wine was made.
     2. description: Here is the description given by the wine taster
     3. points: This refers to the rating given by the taster
     4. price: Price of wine at the moment it was tasted
     5. province: states, divisons or other special areas within a country where winery is located6
 
-* With 43 different countries listed, the top included countries and the least included can be found in the image below. We see that US, Italy and France have the most available data per country. 
+* With 43 different countries available, the 10 most frequent and 10 least frequent help gain perspective of the true variation in available data per country. US, Italy and France have the most available data per country, while China, Slovakia and Egypt have only one sample. 
 ![picture](images/top_least_rated_bar.png)
 
 
 * Price seems to drive much of the wine business. Viewing the inital disribution of prices, most wines tasted were between $4 and $80. However, these tasters have also ventured into the outlandish prices including the most exensive bottle at $330,000. 
 ![picture](images/price_box.png)
-    * In the visual above we see the prices with the top five countrys all have substatial outliers, the most variation being in France. 
-    * We also see an overall price drop when compared to the rating at or above, at and below the average point value of the data set. 
+    * In the visual above, the prices with the top five countrys all have substatial outliers, the most variation being in France. 
+    * Noting the downward trend on teh right graph shows an overall price drop when compared to the rating below and above the average rate value for the entire database. 
 
 
-For more information about my data cleaning investigation, please check out my file, <a href = "https://github.com/hberginc/wine_ratings/blob/master/src/cleaning_justification.md">cleaning justifications</a> for more information.
-
-
-
+Please follow the link provided here: <a href = "https://github.com/hberginc/wine_ratings/blob/master/src/cleaning_justification.md">cleaning justifications</a>, for more information reguarding my data exploration and cleaning process. 
 
 
 ## Hypotheses
-Personally, I prefer Italian wines to any other region I have tried. Lets see if the ratings show off my own preference?  
 
 1.  ### Italian Wine Compared to Other Countries
-Italian wines have higher ratings when compared to other countries. 
+Null Hypothesis: Italian wines have the same ratings as the remaining data. 
+
+Alternative Hypothesis: Italian wines have higher ratings when compared to other countries. 
+
+##### An initial view: 
 
 ![picture](images/Italy_Other_hist.png)
 
- *The collection of ratings range from 80 to 100, which is a typical rating range for wines. Here we see very little differene in the two distributions visually.*
+ *The collection of ratings range from 80 to 100; this is a typical 20 point rating system the many countries employ. Here we see very little differene in the two distributions visually.*
 
-
- * Setting a significance level of 0.05 and returning a p_value of 0.0008 determines that I am confident that the **Italian wines on average rate higher than the other countries wines** provided.
+ * Performing further investigation like the Mann Whitney U test helps determine if these two distributions would have come from the same population.  
+ * Setting a significance level of 0.05 and returning a p_value of 0.0008 determines that I am confident that the there is enough evidence to state that **Italian wines on average rate higher than the other countries wines.**
 
 
 2. ### Three Way Comparison between Italy, France and California. 
+Similarly, I was interested in going further with this investigation and compare Italian wines to three other popular regions. 
+
+I was now interested in determining if:
 
     a. Italian wines have higher ratings when compared to France.
 
@@ -62,7 +65,7 @@ Italian wines have higher ratings when compared to other countries.
  * Surprisingly, there was a statistical difference with French and Californian wines. **French wines do have a greater average rating than Californian wines**, gathering a p_value of 1.429e-07. 
 
 
-Before stocking up on Chablis, the image below shows the cumulitive distribution functions for the regions in question. The minimal differences in the slopes of each region does not highlight our statisticaltests findings. Investigating the slight variation in slope would note minor differences in our wine's point values. 
+Before stocking up on Chablis, the image below shows the cumulitive distribution functions for the regions in question. The minimal differences in the slopes of each region does not highlight the previous statistical findings noted above. Investigating the slight variation in slope would note minor differences in our wine's point values. 
 
 ![picture](images/side_by_side_cdf.png)
 
@@ -107,6 +110,9 @@ Expensive | 1.67e-30 | 0.32
 ### **Of wines that are sufficient to meet the minimum 80 point requirment, there is a higher correlation beteen price and rating when the price was below $150.  When purchasing an expensive wine it may be smarter look at prices lower than $150, it may be more likely to reach that desired high rating.** 
 
 
+## Future Directions
+
+When working with this database, I was interested in including a time component to determine possible increase in ratings on specific areas that are trending. California, for example, has really helped put the US on the map when discussing great wines. Merging this database with more ratings from different blind tastings and including a time component would possibly allow me to find vinyards that are soon to be popular. 
 
 
 ## Resources
@@ -114,3 +120,4 @@ Expensive | 1.67e-30 | 0.32
 
 [WineEnthusiast E-Magazine](https://www.winemag.com/)
 
+[Hisory of Wine Ratings Wikipedia](https://en.wikipedia.org/wiki/Wine_rating#History)

@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
 import seaborn as sns
-from Data_Clean_class import *
 from helper_functions import *
 
 if __name__ == '__main__':
