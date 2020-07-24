@@ -16,13 +16,15 @@ if __name__ == '__main__':
     cols = ['country', 'description', 'points', 'price', 'province', 'region_1', 'title', 'variety', 'winery']
     df = cleaner.clean_df(cols)
 
-    x_italy_data = region_based_df(df, 'country', 'Italy')['points']
-    x_non_it_data = region_based_df(df, 'country', 'Italy', equal_to=False)['points']
+
+    #set up variables
+    Italy_data = region_based_df(df, 'country', 'Italy')['points']
+    non_it_data = region_based_df(df, 'country', 'Italy', equal_to=False)['points']
     France_data = region_based_df(df, 'country', 'France')['points']
     California_data = region_based_df(df, 'province', 'California')['points']
 
     #calculate_p_val
-    p_val = stats.mannwhitneyu(x_italy_data, x_non_it_data, use_continuity=False, alternative='greater')
+    p_val = stats.mannwhitneyu(Italy_data, non_it_data, use_continuity=False, alternative='greater')
     print(f'{p_val} is lower than 0.05 so Italy is better than Other Countries.')
 
 

@@ -24,53 +24,47 @@ As a self-proclaimed Oenophile, analyzing the data collected by wine experts emp
     * In the visual above we see the prices with the top five countrys all have substatial outliers, the most variation being in France. 
     * We also see an overall price drop when compared to the rating at or above, at and below the average point value of the data set. 
 
-* The collection of ratings range from 80 to 100 which is a typical rating range for wines. In America, the ratings range from 80-100 and in Europe they range from 0 - 20. The ratings follow a bell curve shape centering around 88. 
-![picture](images/Original_rate_dist.png)
-
 Please check out my file, cleaning_justification.md for more information on how I determined which columns and rows to utilize for my questions. 
 
 ## Hypotheses
-Personally, I prefer Italian wines to any other region I have tried. Lets see if the ratings show off my own preference? Let's also take a look at Caliornia to compare how it holds up to the popular wines of France. 
+Personally, I prefer Italian wines to any other region I have tried. Lets see if the ratings show off my own preference?  
 
-H1. Italian wines have higher ratings when compared to other countries. 
+1.  ### Italian Wine Compared to Other Countries
+Italian wines have higher ratings when compared to other countries. 
 
-H2. Italian wines have higher ratings when compared to France.
+![picture](images/Italy_Other_hist.png)
 
-H3. Italian wines have higher ratings when compared to California.
-
-H3. French Wines have higher ratings when compared to California. 
-
-![picture](images/side_hists.png)
-
-    Conducting 10,000 samples from each region, we can see all averages fall between 86 points and 90 points with peaks varying for each region. While our non_Italian data looks to have higher in general, looking into statistical analysis will tell a more acurate store. 
+    The collection of ratings range from 80 to 100, which is a typical rating range for wines. Here we see very little differene in the two distributions visually.
 
 
-Each of these hypotheses merit the use of the Mann Whitney U test all single tailed since I am looking for a clear 'best' characteristic of the regions ratings.
-
-H1: Italy v. All Others
-Setting a significance level of 0.05 and returning a p_value of 0.0008 determines that I am confident that the **Italian wines on average rate higher than the other countries wines** provided. 
-
-H2. Italy v. France
-Using the Bonferroni Correction, the new significance level is adusted to 0.025. Calculating a p_value of 
-
-H3. Italian wines have higher ratings when compared to California.
-
-H3. French Wines have higher ratings when compared to California. 
+ * Setting a significance level of 0.05 and returning a p_value of 0.0008 determines that I am confident that the **Italian wines on average rate higher than the other countries wines** provided.
 
 
+2. ### Three Way Comparison between Italy, France and California. 
+
+    a. Italian wines have higher ratings when compared to France.
+
+    b. Italian wines have higher ratings when compared to California.
+
+    c. French Wines have higher ratings when compared to California. 
+
+* Each of these hypotheses merit the use of the Mann Whitney U test all single tailed since I am looking for a clear 'best' characteristic of the regions ratings.
 
 
+![picture](images/bar_dist.png)
+
+    A quick preview of the rating distributions shows very little difference in their overall popularity. 
 
 
-To determine superior ratings in my initial test, a single tailed test calculated a p-value of 0.001. 
-When comparing the Italian and French wine ratings the p-value of 5.21e-23 shows a strong chance that the ratings  between these two regions have statistically significant difference. 
-Similarly for the final two tests, Italian Wines compared to California wines calculated a p-value of 4.79e-09 and finally, French wines and California wines have a calculated p-value of 1.43e-07.
+ * First and Second comparison showed no significant difference in the ratings between the Italian wines and the French wines. Due to the utilization of the Italy data in my previous hypothesis, I utilized the Bonferroni Correction to modify the inital p_values for each sample that was repeated. Gathering a p_value of 1 for both tests comparing Italy, showing no confidence in a difference between the two. 
+ * Surprisingly, there was a statistical difference with French and Californian wines. **French wines do have a greater average rating than Californian wines**, gathering a p_value of 1.429e-07. 
 
-Each of these tests allow me to conclude that, yes, regions do have differences in ratings and that Italian wines have a statistically higher average rating than others.
 
-Before you pick up a Tuscon Red for the weekend, the image below shows the cumulitive distribution functions for the regions in question. Although the p_values show a significant statistical difference, the practical difference between the ratings is minimal at best.
+Before stocking up on Chablis, the image below shows the cumulitive distribution functions for the regions in question. Although the p_values for two of the tests show significant statistical difference, the practical difference between the ratings looks to be minimal. 
 
 ![picture](images/side_by_side_cdf.png)
+
+    Examining the slopes of these graphs compared to each region, 
 
 
 
