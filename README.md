@@ -1,4 +1,4 @@
-# wine_ratings 
+# Data Analysis - Wine Ratings
 
 
 ## Motivation
@@ -76,6 +76,7 @@ To truly investigate the weight of the statistical test, I bootstrapped means of
 
 Region  | Avg. Rating   | Available Samples
 ------- | ------------- | ------------------
+Non Italian | 88.43 |  110,368
 Italy | 88.56 | 19,540
 France | 88.85 | 22,093
 California | 88.63 | 36,247 
