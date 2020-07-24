@@ -21,6 +21,7 @@ As a self-proclaimed Oenophile, analyzing the data collected by wine experts emp
     * In the visual above we see the prices with the top five countrys all have substatial outliers, the most variation being in France. 
     * We also see an overall price drop when compared to the rating at or above, at and below the average point value of the data set. 
 
+
 For more information about my data cleaning investigation, please check out my file, <a href = "https://github.com/hberginc/wine_ratings/blob/master/src/cleaning_justification.md">cleaning justifications</a> for more information.
 
 
@@ -68,21 +69,44 @@ Before stocking up on Chablis, the image below shows the cumulitive distribution
 *Examining the slopes of these graphs compared to each region, we see very little change when determing the difference in points. Idenifying the incremental increase in the French wines, the slopes are steeper around 93 points than Italy, indicating more French wines accumulated that point value.* 
 
 To truly investigate the weight of the statistical test, I bootstrapped means of each region of interest. The image below highlights those findings. 
+    
+
+Region  | Avg. Rating   | Available Samples
+------- | ------------- | ------------------
+Italy | 88.56 | 19,540
+France | 88.85 | 22,093
+California | 88.63 | 36,247 
 
 ![picture](images/bootstrap_sidebysidehist.png)
 
 *Taking a closer look at a bootstrapped mean distribution helps highlight the variances that our statistical tests caught onto. Note the x_axis is a range  of at most a half of a point value.*
-    
-Original Data:
-* Italian points Avg: 88.56 with 19540 samples available
-* French points Avg: 88.85 with 22,093 samples available
-* California points Avg: 88.63 with 36,247 samples available. 
-
-### **Although there is an obvious statistical difference in these wine ratings, note that the practical difference is too minimal to convince these tasters to stock up on their French varieties.**
 
 
-## Further Interests
-I find interest in studying this data deeper focusing on the obvious price differences in wines available. Noting the overpowering effect of the price outliers and the minimal range of a 20 point rating system I am wondering if higher priced wines would benefit from a more comprehensive rating system to highlight the differences between the 90 point $80 bottle and the 90 point $1000 bottle. 
+
+### **Although there is an obvious statistical difference in these wine ratings, note that the practical difference is too minimal to convince interested parties to stock up on Specific varieties.**
+
+
+## Extended Testing
+
+### Price and Rating comparison for expensive wines
+
+Life is too short to drink bad wine, but does that mean it's worth diggin deap into your pockets for wine that is more than $150 a bottle? The correlation between price and rating may be expected but is it really that much stronger than the cheaper bottles? Looking initially at the following scatterplots, the volume of data is certainly disproportionate since only 1% of the wines fall above $150, however there does look like they both have positive correlations between price and point value. 
+
+![picture](images/price_scatter.png)
+
+
+Utilizing the spearman correlation test, the cheaper wines have almost twice as much correlation between their ratings and the price point. It is important to note that any wines that do not meet the point systems minimum value of 80 would not be included in this graph and could influence future results. 
+
+
+Price Category  | p_value |  Correlation Coefficient
+--------------- | --------- | -------------------------
+Cheaper | 0 | 0.6
+Expensive | 1.67e-30 | 0.32 
+
+
+### **Of wines that are sufficient to meet the minimum 80 point requirment, there is a higher correlation beteen price and rating when the price was below $150.  When purchasing an expensive wine it may be smarter look at prices lower than $150, it may be more likely to reach that desired high rating.** 
+
+
 
 
 ## Resources

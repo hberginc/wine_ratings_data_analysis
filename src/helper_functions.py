@@ -61,7 +61,7 @@ class DataClean(object):
 
         returns:data frame only with columns selected
         '''
-        cleaned_df = self.data[cols].reset_index()
+        cleaned_df = self.data[cols]
         return cleaned_df
 
 
@@ -138,5 +138,5 @@ if __name__ == "__main__":
     print('Dropped all null country rows')
     cols = ['country', 'description', 'points', 'price', 'province']
     cleaned = cleaner.clean_df(cols)
-    print('"cleaned" df ready to go!')
+    print('data frame called "cleaned" ready to go!')
     print(cleaned.head(2))

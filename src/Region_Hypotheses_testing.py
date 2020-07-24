@@ -12,7 +12,7 @@ if __name__ == '__main__':
     cleaner = DataClean(path)
     cleaner.replace_val(86909, 'variety', 'Cabernet Sauvignon')
     cleaner.drop_null_rows(['country'])
-    cols = ['country', 'description', 'points', 'price', 'province', 'region_1', 'title', 'variety', 'winery']
+    cols = ['country', 'points', 'price', 'province']
     df = cleaner.clean_df(cols)
 
 
