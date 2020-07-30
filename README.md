@@ -2,7 +2,7 @@
 
 
 ## Motivation
-As a self-proclaimed Oenophile, analyzing the data collected by wine experts from [WineEnthusiast](https://www.winemag.com/), allows me to dive into the subjective subject of wine ratings. Ratings can help guide consumers to spend their money on wine that has verified and quantified quality without needed to test it themselves. This key advertising strategy has launched a series of tasting events, social media rating apps, along with wine competitions. Wine consumption continues to increase drastically, and as such, exploring the use of the rating system is a key aspect to moving forward in the wine industry. 
+As a self-proclaimed Oenophile, analyzing the data collected by wine experts from [WineEnthusiast](https://www.winemag.com/), allows me to dive into the subjective topic of wine ratings. Ratings can help guide consumers to spend their money on wine that has verified and quantified quality without needed to test it themselves. This key advertising strategy has launched a series of tasting events, social media rating apps, along with wine competitions. Wine consumption continues to increase drastically, and as such, exploring the use of the rating system is a key aspect to moving forward in the wine industry. 
 
 ## About this Data
 * The initial visual of this data provids a total of thirteen columns. Of these thirteen, the following 5 columns anticipate the most interet with my Data Analysis. 
@@ -12,7 +12,7 @@ As a self-proclaimed Oenophile, analyzing the data collected by wine experts fro
     4. price: Price of wine at the moment it was tasted
     5. province: states, divisons or other special areas within a country where winery is located6
 
-* With 43 different countries available, the 10 most frequent and 10 least frequent help gain perspective of the true variation in available data per country. US, Italy and France have the most available data per country, while China, Slovakia and Egypt have only one sample. 
+* With 43 different countries available, the 10 most frequent and 10 least frequent help gain perspective of the true variation in available data per country. US, Italy and France have the most available data per country, while China, Slovakia and Egypt have only one sample. Note that these ratings were collected from an American based company and pertain ratings that reflect American wine enthusiats higher than other areas. 
 ![picture](images/top_least_rated_bar.png)
 
 
@@ -28,9 +28,8 @@ Please follow the link provided here: <a href = "https://github.com/hberginc/win
 ## Hypotheses
 
 1.  ### Italian Wine Compared to Other Countries
-Null Hypothesis: Italian wines have the same ratings as the remaining data. 
 
-Alternative Hypothesis: Italian wines have higher ratings when compared to other countries. 
+Do Italian wines have higher ratings when compared to other countries?
 
 ##### An initial view: 
 
@@ -53,7 +52,7 @@ I was now interested in determining if:
 
     c. French Wines have higher ratings when compared to California. 
 
-* Each of these hypotheses merit the use of the Mann Whitney U test all single tailed since I am looking for a clear 'best' characteristic of the regions ratings.
+* Each of these hypotheses merit the use of the Mann Whitney U test, all single tailed, considering that the determining factor includes a "winner" rather than a simple difference between ratings.
 
 
 ![picture](images/bar_dist.png)
